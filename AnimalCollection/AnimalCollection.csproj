@@ -5,4 +5,14 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <None Remove="DTOs\" />
+    <None Remove="Repositories\" />
+    <None Remove="Screenshots\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Screenshots\" />
+  </ItemGroup>
 </Project>
