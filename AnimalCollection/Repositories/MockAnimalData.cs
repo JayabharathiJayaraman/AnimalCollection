@@ -41,7 +41,8 @@ namespace AnimalCollection.Repositories
 
         public Animal GetAnimalById(int animalId)
         {
-            throw new NotImplementedException();
+            Animal animal = _animals.Find(animal => animal.AnimalId == animalId);
+            return animal;
         }
 
         public Animal UpdateAnimal(Animal animal, int id)

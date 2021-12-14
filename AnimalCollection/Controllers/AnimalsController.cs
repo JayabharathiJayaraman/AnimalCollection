@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using AnimalCollection.DTOs;
+using AnimalCollection.Entities;
 using AnimalCollection.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,6 +31,32 @@ namespace AnimalCollection.Controllers
                     AnimalType = a.AnimalType
                 }).OrderBy(x => x.AnimalName);
             return Ok(animals);
+        }
+
+        [HttpGet]
+        [Route("{animalId}")]
+        public IActionResult GetArtistById(int animalId)
+        {
+            Animal animal = _animalRepo.GetAnimalById(animalId);
+            
+
+            if (animal is null)
+            {
+                return NotFound($"Animal with id {animalId} is not Found");
+            }
+
+            AnimalDTO animalDTO = MapAnimalToAnimalDTO(animal);
+            return Ok(animalDTO);
+        }
+
+        private AnimalDTO MapAnimalToAnimalDTO(Animal animal)
+        {
+            return new AnimalDTO
+            {
+                AnimalId = animal.AnimalId,
+                AnimalName = animal.AnimalName,
+                AnimalType = animal.AnimalType
+            };
         }
 
     }
