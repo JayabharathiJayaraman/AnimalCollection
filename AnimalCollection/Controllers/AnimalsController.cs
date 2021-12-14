@@ -35,7 +35,7 @@ namespace AnimalCollection.Controllers
 
         [HttpGet]
         [Route("{animalId}")]
-        public IActionResult GetArtistById(int animalId)
+        public IActionResult GetAnimalById(int animalId)
         {
             Animal animal = _animalRepo.GetAnimalById(animalId);
             
