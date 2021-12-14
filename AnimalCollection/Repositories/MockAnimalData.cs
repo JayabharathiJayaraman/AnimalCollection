@@ -52,7 +52,7 @@ namespace AnimalCollection.Repositories
 
         public void DeleteAnimal(int id)
         {
-            throw new NotImplementedException();
+            _animals.Remove(GetAnimalById(id));
         }
 
         public List<Animal> GetAllAnimals()

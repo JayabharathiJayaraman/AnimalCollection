@@ -71,6 +71,15 @@ namespace AnimalCollection.Controllers
             return Ok(animalDTO);
         }
 
+        [HttpDelete("{id}")]
+
+        public IActionResult DeleteAnimall(int id)
+        {
+            _animalRepo.DeleteAnimal(id);
+         
+        }
+
+
         private AnimalDTO MapAnimalToAnimalDTO(Animal animal)
         {
             return new AnimalDTO
