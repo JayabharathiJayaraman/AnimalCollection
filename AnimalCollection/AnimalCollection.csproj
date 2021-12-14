@@ -9,10 +9,12 @@
     <None Remove="DTOs\" />
     <None Remove="Repositories\" />
     <None Remove="Screenshots\" />
+    <None Remove="Entities\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Repositories\" />
     <Folder Include="Screenshots\" />
+    <Folder Include="Entities\" />
   </ItemGroup>
 </Project>
