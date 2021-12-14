@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AnimalCollection.DTOs;
 using AnimalCollection.Entities;
 
@@ -26,7 +27,27 @@ namespace AnimalCollection.Repositories
 
         public Animal CreateAnimal(CreateAnimalDTO animalDTO)
         {
-            throw new NotImplementedException();
+            Animal animal = new Animal();
+            animal.CreatedDate = DateTime.Now;
+            animal.AnimalName = animalDTO.AnimalName;
+            animal.AnimalType = animalDTO.AnimalType;
+            animal.AnimalId = _animals.Max(x => x.AnimalId) + 1;
+
+            _animals.Add(animal);
+
+            return animal;
+        }
+
+        public Animal UpdateAnimal(Animal animal, int id)
+        {
+            Animal existingAnimal = _animals.FirstOrDefault(x => x.AnimalId == id);
+            if (existingAnimal is not null)
+            {
+                existingAnimal.AnimalName = animal.AnimalName;
+                existingAnimal.AnimalType = animal.AnimalType;
+            }
+            
+            return existingAnimal;
         }
 
         public void DeleteAnimal(int id)
@@ -45,9 +66,5 @@ namespace AnimalCollection.Repositories
             return animal;
         }
 
-        public Animal UpdateAnimal(Animal animal, int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

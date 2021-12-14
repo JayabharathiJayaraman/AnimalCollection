@@ -38,7 +38,7 @@ namespace AnimalCollection.Controllers
         public IActionResult GetAnimalById(int animalId)
         {
             Animal animal = _animalRepo.GetAnimalById(animalId);
-            
+
 
             if (animal is null)
             {
@@ -46,6 +46,28 @@ namespace AnimalCollection.Controllers
             }
 
             AnimalDTO animalDTO = MapAnimalToAnimalDTO(animal);
+            return Ok(animalDTO);
+        }
+
+        [HttpPost("")]
+        
+        public IActionResult CreateAnimal([FromBody] CreateAnimalDTO createAnimalDTO)
+        {
+            Animal createdAnimal = _animalRepo.CreateAnimal(createAnimalDTO);
+
+            AnimalDTO animalDTO = MapAnimalToAnimalDTO(createdAnimal);
+            return CreatedAtAction(
+                nameof(GetAnimalById),
+                new { id = animalDTO.AnimalId },
+                animalDTO);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateAnimal([FromBody] Animal animal, int id) {
+
+            Animal updatedAnimal = _animalRepo.UpdateAnimal(animal, id);
+            AnimalDTO animalDTO = MapAnimalToAnimalDTO(updatedAnimal);
+
             return Ok(animalDTO);
         }
 
@@ -58,6 +80,8 @@ namespace AnimalCollection.Controllers
                 AnimalType = animal.AnimalType
             };
         }
+
+
 
     }
 }
