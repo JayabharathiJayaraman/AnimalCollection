@@ -11,11 +11,19 @@
     <None Remove="Repositories\" />
     <None Remove="Screenshots\" />
     <None Remove="Entities\" />
+    <None Remove="Screenshots\Create\" />
+    <None Remove="Screenshots\update\" />
+    <None Remove="Screenshots\Delete\" />
+    <None Remove="Screenshots\GetAllAnimals\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Repositories\" />
     <Folder Include="Screenshots\" />
     <Folder Include="Entities\" />
+    <Folder Include="Screenshots\Create\" />
+    <Folder Include="Screenshots\update\" />
+    <Folder Include="Screenshots\Delete\" />
+    <Folder Include="Screenshots\GetAllAnimals\" />
   </ItemGroup>
 </Project>

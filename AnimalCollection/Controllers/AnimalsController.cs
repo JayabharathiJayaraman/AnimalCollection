@@ -29,7 +29,7 @@ namespace AnimalCollection.Controllers
                     AnimalId = a.AnimalId,
                     AnimalName = a.AnimalName,
                     AnimalType = a.AnimalType
-                }).OrderBy(x => x.AnimalName);
+                }).OrderBy(x => x.AnimalId);
             return Ok(animals);
         }
 
@@ -49,16 +49,16 @@ namespace AnimalCollection.Controllers
             return Ok(animalDTO);
         }
 
-        [HttpPost("")]
-        
+        [HttpPost]
+        [Route("")]
         public IActionResult CreateAnimal([FromBody] CreateAnimalDTO createAnimalDTO)
         {
             Animal createdAnimal = _animalRepo.CreateAnimal(createAnimalDTO);
-
+          
             AnimalDTO animalDTO = MapAnimalToAnimalDTO(createdAnimal);
             return CreatedAtAction(
                 nameof(GetAnimalById),
-                new { id = animalDTO.AnimalId },
+                new { AnimalId = animalDTO.AnimalId },
                 animalDTO);
         }
 
@@ -73,10 +73,10 @@ namespace AnimalCollection.Controllers
 
         [HttpDelete("{id}")]
 
-        public IActionResult DeleteAnimall(int id)
+        public IActionResult DeleteAnimal(int id)
         {
             _animalRepo.DeleteAnimal(id);
-         
+            return NoContent();
         }
 
 
