@@ -6,6 +6,6 @@ Ghanavinodhini Chandrasekaran
 
 Following CRUD operations are performed in this WebApi:
 
-GhanaVinodhini Chandrasekaran: - Creation of classes, interfaces and their properties for CRUD, Implemented Get,GetById functionalities and added it's screenshots from Postman
+GhanaVinodhini Chandrasekaran: - Creation of model, interfaces for CRUD. Implemented GetAll,GetById functionalities and added it's screenshots from Postman
 
 Jayabharathi Jayaraman: - Implemented methods for Create, Update, Delete functionalities and added it's screenshots from Postman.
