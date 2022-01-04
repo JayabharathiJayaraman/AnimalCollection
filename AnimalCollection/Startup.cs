@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AnimalCollection.Entities;
 using AnimalCollection.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,8 @@ namespace AnimalCollection
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IAnimalRepo, MockAnimalData>();
+            services.AddScoped<IAnimalRepo, MockAnimalData>();
+            services.AddDbContext<ApplicationContext>();
 
         }
 

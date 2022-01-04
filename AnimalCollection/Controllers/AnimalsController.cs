@@ -22,14 +22,7 @@ namespace AnimalCollection.Controllers
         [Route("")]
         public IActionResult GetAllAnimals()
         {
-            IOrderedEnumerable<AnimalDTO> animals = _animalRepo
-                .GetAllAnimals()
-                .Select(a => new AnimalDTO
-                {
-                    AnimalId = a.AnimalId,
-                    AnimalName = a.AnimalName,
-                    AnimalType = a.AnimalType
-                }).OrderBy(x => x.AnimalId);
+            var animals = _animalRepo.GetAllAnimals().ToList().MapToAnimalDTOs();
             return Ok(animals);
         }
 
@@ -45,52 +38,9 @@ namespace AnimalCollection.Controllers
                 return NotFound($"Animal with id {animalId} is not Found");
             }
 
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(animal);
+            AnimalDTO animalDTO = animal.MapToAnimalDTO();
             return Ok(animalDTO);
         }
-
-        [HttpPost]
-        [Route("")]
-        public IActionResult CreateAnimal([FromBody] CreateAnimalDTO createAnimalDTO)
-        {
-            Animal createdAnimal = _animalRepo.CreateAnimal(createAnimalDTO);
-          
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(createdAnimal);
-            return CreatedAtAction(
-                nameof(GetAnimalById),
-                new { AnimalId = animalDTO.AnimalId },
-                animalDTO);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult UpdateAnimal([FromBody] Animal animal, int id) {
-
-            Animal updatedAnimal = _animalRepo.UpdateAnimal(animal, id);
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(updatedAnimal);
-
-            return Ok(animalDTO);
-        }
-
-        [HttpDelete("{id}")]
-
-        public IActionResult DeleteAnimal(int id)
-        {
-            _animalRepo.DeleteAnimal(id);
-            return NoContent();
-        }
-
-
-        private AnimalDTO MapAnimalToAnimalDTO(Animal animal)
-        {
-            return new AnimalDTO
-            {
-                AnimalId = animal.AnimalId,
-                AnimalName = animal.AnimalName,
-                AnimalType = animal.AnimalType
-            };
-        }
-
-
 
     }
 }
