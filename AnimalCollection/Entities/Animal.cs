@@ -13,10 +13,11 @@ namespace AnimalCollection.Entities
         public int AnimalTypeId { get; set; }
         //public string AnimalType { get; set; }
 
+        [Required]
         public string AnimalName { get; set; }
        
 
-        [Required]
+        
         public AnimalType AnimalType { get; set; }
 
         public DateTime CreatedDate { get; set; }
