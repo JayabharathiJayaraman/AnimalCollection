@@ -25,7 +25,7 @@ namespace AnimalCollection.Repositories
 
         public Animal GetAnimalById(int animalId)
         {
-            Animal animal = _db.Animals.Include(a => a.AnimalTypeId).SingleOrDefault(x => x.AnimalId == animalId);
+            Animal animal = _db.Animals.Include(a => a.AnimalType).SingleOrDefault(x => x.AnimalId == animalId);
             return animal;
         }
 
