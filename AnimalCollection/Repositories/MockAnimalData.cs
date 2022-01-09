@@ -25,8 +25,40 @@ namespace AnimalCollection.Repositories
 
         public Animal GetAnimalById(int animalId)
         {
-            Animal animal = _db.Animals.Include(a => a.AnimalTypeId).SingleOrDefault(x => x.AnimalId == animalId);
+            Animal animal = _db.Animals.Include(a => a.AnimalType).SingleOrDefault(x => x.AnimalId == animalId);
             return animal;
+        }
+
+        public Animal CreateAnimal(CreateAnimalDTO createdAnimalDTO)
+        {
+            Animal animal = new Animal(); 
+
+            animal.CreatedDate = DateTime.Now;
+            animal.AnimalTypeId = createdAnimalDTO.AnimalTypeId;
+            animal.AnimalName = createdAnimalDTO.AnimalName;
+
+            _db.Animals.Add(animal); 
+            _db.SaveChanges(); 
+            return animal;
+
+        }
+
+        public Animal UpdateAnimal(Animal animal, int id)
+        {
+            Animal existingAnimal = _db.Animals.FirstOrDefault(x => x.AnimalId == id);
+            if (existingAnimal is not null)
+            {
+                existingAnimal.AnimalName = animal.AnimalName;
+                existingAnimal.AnimalType = animal.AnimalType;
+            }
+            _db.SaveChanges(); //- Save change in DB after update
+            return existingAnimal;
+        }
+
+        public void DeleteAnimal(int id)
+        {
+            _db.Animals.Remove(GetAnimalById(id));
+            _db.SaveChanges();
         }
 
     }

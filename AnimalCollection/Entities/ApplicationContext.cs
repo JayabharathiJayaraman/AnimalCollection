@@ -15,8 +15,9 @@ namespace AnimalCollection.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var _connectionString = "server=localhost; database=animalCollection; user=Jaya; password=Jaya1234.";
+            //var _connectionString = "server=localhost; database=animalCollection; user=Jaya; password=Jaya1234.";
 
+            var _connectionString = "server=localhost;database=AnimalCollection;user Id=Ghana;password=ghana1985";
             options.UseMySql(_connectionString, ServerVersion.AutoDetect(_connectionString));
         }
 

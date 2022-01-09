@@ -9,8 +9,8 @@ namespace AnimalCollection.Repositories
     {
         List<Animal> GetAllAnimals();
         Animal GetAnimalById(int animalId);
-        /*Animal CreateAnimal(CreateAnimalDTO animalDTO);
+        Animal CreateAnimal(CreateAnimalDTO animalDTO);
         Animal UpdateAnimal(Animal animal,int id);
-        void DeleteAnimal(int id);*/
+        void DeleteAnimal(int id);
     }
 }

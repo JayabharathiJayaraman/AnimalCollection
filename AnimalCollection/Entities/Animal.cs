@@ -16,8 +16,6 @@ namespace AnimalCollection.Entities
         [Required]
         public string AnimalName { get; set; }
        
-
-        
         public AnimalType AnimalType { get; set; }
 
         public DateTime CreatedDate { get; set; }
