@@ -20,10 +20,7 @@
     <None Remove="Screenshots\DB Normalization\" />
     <None Remove="Screenshots\DB Normalization\Get without seeding data\" />
     <None Remove="Screenshots\DB Normalization\DB Animal Schema\" />
-    <None Remove="ScreenshotsLab2\" />
-    <None Remove="ScreenshotsLab2\GetAllAnimals\" />
-    <None Remove="ScreenshotsLab2\GetAnimalsById\" />
-    <None Remove="ScreenshotsLab2\DB-MySql\" />
+    <None Remove="Screenshots\GetAnimalsById\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
@@ -37,10 +34,7 @@
     <Folder Include="Screenshots\DB Normalization\" />
     <Folder Include="Screenshots\DB Normalization\Get without seeding data\" />
     <Folder Include="Screenshots\DB Normalization\DB Animal Schema\" />
-    <Folder Include="ScreenshotsLab2\" />
-    <Folder Include="ScreenshotsLab2\GetAllAnimals\" />
-    <Folder Include="ScreenshotsLab2\GetAnimalsById\" />
-    <Folder Include="ScreenshotsLab2\DB-MySql\" />
+    <Folder Include="Screenshots\GetAnimalsById\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.3" />
