@@ -1,6 +1,6 @@
 # AnimalCollection
 Lab2
-****
+----
 This laboratory exercise is done by:
 Jayabharathi Jayaraman,
 Ghanavinodhini Chandrasekaran
@@ -15,7 +15,7 @@ GhanaVinodhini Chandrasekaran: - Creation of model, DB Schema, implemented metho
 Jayabharathi Jayaraman: -  Implemented Seeding data,GetAll,GetById functionalities,  and added it's screenshots from DB and Postman.
 
 Lab1
-****
+----
 This laboratory exercise is done by:
 Jayabharathi Jayaraman,
 Ghanavinodhini Chandrasekaran
